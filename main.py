@@ -100,31 +100,18 @@ def get_teams_from_league(league_id,league_name):
     return team_names
 
 
-print(get_teams_from_league(180,"La Liga"))
+# print(get_teams_from_league(180,"La Liga"))
 
 # 
-# def get_team_id(league_name,team_name = "Chelsea",season = 2026):
+def get_team_id(team_name):
    
-    # league_teams = get_teams_from_league(league_name,season)
-    # league_dict = Leagues
-    # if league_dict is None:
-        # return None
-    # if league_name in league_dict:
-        # teams_url = f"{url}{league_dict[league_name]}/teams"
-    # else:
-        # return None
-
-    # fetch = fetch_json(teams_url,params = {"season":season})
-    # if fetch is None:
-        # return None
-    
-    # team_id = {}
-    # if team_name in league_teams:
-        # position = league_teams.index(team_name)
-        # team_id[team_name] = fetch["teams"][position]["id"]
-    # else:
-        # return Nonex
-    # return team_id[team_name]
+    fetch = fetch_json(teams_url,params = {"name":team_name})
+    if fetch is None:
+        return None
+    team_id = {}
+    team_id[team_name] = fetch["response"][0]["team"]["id"]
+   
+    return team_id[team_name]
 
 
 
