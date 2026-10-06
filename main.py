@@ -11,7 +11,7 @@ api = "2d4bfb855fc3a9892bae30bdeba090fe"
 
 leagues_url = "https://v3.football.api-sports.io/leagues"
 teams_url = "https://v3.football.api-sports.io/teams"
-player_url = "https://v3.football.api-sports.io/players/seasons"
+player_url = "https://v3.football.api-sports.io/players/squads"
 
 
 headers = {'x-apisports-key': api}
@@ -114,40 +114,69 @@ def get_team_id(team_name):
     return team_id[team_name]
 
 
-
-
-# def get_player_id(league_name,team_name,player_name,
-#                 dateFrom = current(2020,1,1),
-#                 dateTo = current.today()):
+def get_player_id(team_id,player_name):
    
-#     team_id = get_team_id(league_name,team_name)
-#     if team_id is None:
-#         return None
+    fetch = fetch_json(player_url,params = {"team":team_id})
+    
+    if fetch is None:
+        return None
+    
+    player_id = {}
+    for player in fetch["response"][0]["players"]:
+        if player["name"].split(". ")[-1] == player_name:
+            player_id[player_name] = player["id"]
+        else:
+            player_id[player_name] = None
 
-#     team_url = f"http://api.football-data.org/v4/teams/{team_id}"
-#     club = fetch_json(team_url)
-#     pIndex = 100
-#     squad = club["squad"]
-#     for player_info in squad:
-#         player = player_info["name"]
-#         if player_name == player:
-#             pIndex = squad.index(player_info)
-#             break
+    if player_id is None:
+        return None
+    return player_id[player_name]
+
+print(get_player_id(49,'Bellingham'))
         
-#     if pIndex > len(squad):
-#         return None
+
+
         
-#     player_id = {}
-#     player_id[player_name] = squad[pIndex]["id"]
 
-#     if player_id is None:
-#         return None
-#     return player_id[player_name]
 
-# player_id = get_player_id("La Liga","Real Madrid","Jude Bellingham")
-# player_url = f"http://api.football-data.org/v4/persons/{player_id}/matches"
-# fetch = fetch_json(player_url,params = {"dateFrom":current(2024,9,1),"dateTo":current(2025,9,1)})
-# print(fetch)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # # def get_player_stats(league_name,club,player,season = 2026):
 # #     player_id = get_player_id(league_name,club,player)
