@@ -1,49 +1,271 @@
-Campeonato Brasileiro Série A,Championship,Premier League,UEFA Champions League,European Championship,Ligue 1,Bundesliga,Serie A,Eredivisie,Primeira Liga,La Liga,FIFA World Cup
-Fluminense FC,Blackburn Rovers FC,Arsenal FC,Borussia Dortmund,Germany,Toulouse FC,1. FC Köln,AC Milan,FC Twente '65,Rio Ave FC,Athletic Club,Uruguay
-CA Mineiro,Bolton Wanderers FC,Aston Villa FC,FC Bayern München,Spain,Stade Brestois 29,TSG 1899 Hoffenheim,ACF Fiorentina,SBV Excelsior,Sporting Clube de Portugal,Club Atlético de Madrid,Germany
-Grêmio FBPA,Norwich City FC,Chelsea FC,VfB Stuttgart,Portugal,Olympique de Marseille,Bayer 04 Leverkusen,AS Roma,Willem II Tilburg,FC Porto,CA Osasuna,Spain
-CA Paranaense,Queens Park Rangers FC,Everton FC,Arsenal FC,Slovakia,AJ Auxerre,Borussia Dortmund,Atalanta BC,SC Heerenveen,GD Estoril Praia,RCD Espanyol de Barcelona,Paraguay
-SE Palmeiras,Stoke City FC,Fulham FC,Aston Villa FC,England,Lille OSC,FC Bayern München,Bologna FC 1909,PSV,Moreirense FC,FC Barcelona,Argentina
-Botafogo FR,Swansea City AFC,Liverpool FC,Liverpool FC,France,OGC Nice,FC Schalke 04,Cagliari Calcio,Feyenoord Rotterdam,FC Arouca,Getafe CF,Ghana
-Cruzeiro EC,West Bromwich Albion FC,Manchester City FC,Manchester City FC,Slovenia,Olympique Lyonnais,Hamburger SV,Genoa CFC,FC Utrecht,Sport Lisboa e Benfica,Málaga CF,Brazil
-Chapecoense AF,Wolverhampton Wanderers FC,Manchester United FC,Manchester United FC,Serbia,Paris Saint-Germain FC,VfB Stuttgart,FC Internazionale Milano,FC Groningen,Académico de Viseu FC,Real Madrid CF,Portugal
-São Paulo FC,Portsmouth FC,Newcastle United FC,Club Atlético de Madrid,Denmark,FC Lorient,SV Werder Bremen,Juventus FC,AFC Ajax,CD Nacional,Rayo Vallecano de Madrid,Japan
-EC Bahia,Burnley FC,Sunderland AFC,FC Barcelona,Italy,Stade Rennais FC 1901,1. FSV Mainz 05,SS Lazio,ADO Den Haag,CD Santa Clara,Levante UD,Mexico
-SC Corinthians Paulista,Birmingham City FC,Tottenham Hotspur FC,Real Madrid CF,Switzerland,ES Troyes AC,FC Augsburg,Parma Calcio 1913,AZ,FC Famalicão,Real Betis Balompié,England
-CR Vasco da Gama,Southampton FC,Hull City AFC,Real Betis Balompié,Ukraine,Angers SCO,SC Freiburg,SSC Napoli,PEC Zwolle,Gil Vicente FC,Real Sociedad de Fútbol,United States
-EC Vitória,Derby County FC,Leeds United FC,Villarreal CF,Poland,Le Havre AC,Borussia Mönchengladbach,Udinese Calcio,Go Ahead Eagles,Vitória SC,Villarreal CF,South Korea
-CR Flamengo,Middlesbrough FC,Ipswich Town FC,AS Roma,Czechia,Le Mans FC,Eintracht Frankfurt,Venezia FC,SC Cambuur-Leeuwarden,CS Marítimo,Valencia CF,France
-Coritiba FBC,Watford FC,Nottingham Forest FC,FC Internazionale Milano,Croatia,Racing Club de Lens,1. FC Union Berlin,Frosinone Calcio,Telstar 1963,Sporting Clube de Braga,Deportivo Alavés,South Africa
-RB Bragantino,Charlton Athletic FC,Crystal Palace FC,SSC Napoli,Turkey,AS Monaco FC,SC Paderborn 07,US Sassuolo Calcio,NEC,Casa Pia AC,Elche CF,Algeria
-Clube do Remo,Sheffield United FC,Brighton & Hove Albion FC,Sporting Clube de Portugal,Belgium,RC Strasbourg Alsace,SV 07 Elversberg,Torino FC,Fortuna Sittard,FC Alverca,RC Celta de Vigo,Australia
-Mirassol FC,Millwall FC,Brentford FC,FC Porto,Romania,Paris FC,RB Leipzig,US Lecce,Sparta Rotterdam,CF Estrela da Amadora,Sevilla FC,New Zealand
-SC Internacional,Bristol City FC,AFC Bournemouth,Lille OSC,Austria,,,AC Monza,,,RC Deportivo La Coruña,Switzerland
-Santos FC,Wrexham AFC,Coventry City FC,Paris Saint-Germain FC,Hungary,,,Como 1907,,,Real Racing Club de Santander,Ecuador
-,West Ham United FC,,Racing Club de Lens,Albania,,,,,,,Sweden
-,Cardiff City FC,,Galatasaray SK,Georgia,,,,,,,Czechia
-,Preston North End FC,,Fenerbahçe SK,Netherlands,,,,,,,Croatia
-,Lincoln City FC,,PSV,Scotland,,,,,,,Saudi Arabia
-,,,Feyenoord Rotterdam,,,,,,,,Tunisia
-,,,RB Leipzig,,,,,,,,Turkey
-,,,Club Brugge KV,,,,,,,,Senegal
-,,,SK Slavia Praha,,,,,,,,Belgium
-,,,FK Shakhtar Donetsk,,,,,,,,Morocco
-,,,PAE AEK,,,,,,,,Austria
-,,,LASK Linz,,,,,,,,Colombia
-,,,Viking FK,,,,,,,,Egypt
-,,,FK Bodø/Glimt,,,,,,,,Canada
-,,,Como 1907,,,,,,,,Haiti
-,,,ŠK Slovan Bratislava,,,,,,,,Iran
-,,,Sabah FK,,,,,,,,Bosnia-Herzegovina
-,,,,,,,,,,,Panama
-,,,,,,,,,,,Cape Verde Islands
-,,,,,,,,,,,Congo DR
-,,,,,,,,,,,Ivory Coast
-,,,,,,,,,,,Qatar
-,,,,,,,,,,,Jordan
-,,,,,,,,,,,Iraq
-,,,,,,,,,,,Uzbekistan
-,,,,,,,,,,,Netherlands
-,,,,,,,,,,,Norway
-,,,,,,,,,,,Scotland
-,,,,,,,,,,,Curaçao
+league,team
+Premier League,Arsenal
+Premier League,Aston Villa
+Premier League,Bournemouth
+Premier League,Brentford
+Premier League,Brighton
+Premier League,Burnley
+Premier League,Chelsea
+Premier League,Crystal Palace
+Premier League,Everton
+Premier League,Fulham
+Premier League,Liverpool
+Premier League,Luton
+Premier League,Manchester City
+Premier League,Manchester United
+Premier League,Newcastle
+Premier League,Nottingham Forest
+Premier League,Sheffield Utd
+Premier League,Tottenham
+Premier League,West Ham
+Premier League,Wolves
+La Liga,Alaves
+La Liga,Almeria
+La Liga,Athletic Club
+La Liga,Atletico Madrid
+La Liga,Barcelona
+La Liga,Cadiz
+La Liga,Celta Vigo
+La Liga,Getafe
+La Liga,Girona
+La Liga,Granada CF
+La Liga,Las Palmas
+La Liga,Mallorca
+La Liga,Osasuna
+La Liga,Rayo Vallecano
+La Liga,Real Betis
+La Liga,Real Madrid
+La Liga,Real Sociedad
+La Liga,Sevilla
+La Liga,Valencia
+La Liga,Villarreal
+Serie A,AC Milan
+Serie A,AS Roma
+Serie A,Atalanta
+Serie A,Bologna
+Serie A,Cagliari
+Serie A,Empoli
+Serie A,Fiorentina
+Serie A,Frosinone
+Serie A,Genoa
+Serie A,Hellas Verona
+Serie A,Inter
+Serie A,Juventus
+Serie A,Lazio
+Serie A,Lecce
+Serie A,Monza
+Serie A,Napoli
+Serie A,Salernitana
+Serie A,Sassuolo
+Serie A,Torino
+Serie A,Udinese
+Bundesliga,1. FC Heidenheim
+Bundesliga,1. FC Köln
+Bundesliga,1899 Hoffenheim
+Bundesliga,Bayer Leverkusen
+Bundesliga,Bayern München
+Bundesliga,Borussia Dortmund
+Bundesliga,Borussia Mönchengladbach
+Bundesliga,Eintracht Frankfurt
+Bundesliga,FC Augsburg
+Bundesliga,FSV Mainz 05
+Bundesliga,Fortuna Düsseldorf
+Bundesliga,RB Leipzig
+Bundesliga,SC Freiburg
+Bundesliga,SV Darmstadt 98
+Bundesliga,Union Berlin
+Bundesliga,VfB Stuttgart
+Bundesliga,VfL Bochum
+Bundesliga,VfL Wolfsburg
+Bundesliga,Werder Bremen
+Ligue 1,Clermont Foot
+Ligue 1,Le Havre
+Ligue 1,Lens
+Ligue 1,Lille
+Ligue 1,Lorient
+Ligue 1,Lyon
+Ligue 1,Marseille
+Ligue 1,Metz
+Ligue 1,Monaco
+Ligue 1,Montpellier
+Ligue 1,Nantes
+Ligue 1,Nice
+Ligue 1,Paris Saint Germain
+Ligue 1,Reims
+Ligue 1,Rennes
+Ligue 1,Saint Etienne
+Ligue 1,Stade Brestois 29
+Ligue 1,Strasbourg
+Ligue 1,Toulouse
+Eredivisie,ADO Den Haag
+Eredivisie,AZ Alkmaar
+Eredivisie,Ajax
+Eredivisie,Almere City FC
+Eredivisie,De Graafschap
+Eredivisie,Dordrecht
+Eredivisie,Emmen
+Eredivisie,Excelsior
+Eredivisie,FC Volendam
+Eredivisie,Feyenoord
+Eredivisie,Fortuna Sittard
+Eredivisie,GO Ahead Eagles
+Eredivisie,Heerenveen
+Eredivisie,Heracles
+Eredivisie,NAC Breda
+Eredivisie,NEC Nijmegen
+Eredivisie,PEC Zwolle
+Eredivisie,PSV Eindhoven
+Eredivisie,Roda
+Eredivisie,Sparta Rotterdam
+Eredivisie,Twente
+Eredivisie,Utrecht
+Eredivisie,Vitesse
+Eredivisie,Waalwijk
+UEFA Champions League,AC Milan
+UEFA Champions League,AEK Athens FC
+UEFA Champions League,Antwerp
+UEFA Champions League,Aris
+UEFA Champions League,Arsenal
+UEFA Champions League,Atletico Madrid
+UEFA Champions League,Atlètic Club d'Escaldes
+UEFA Champions League,BK Hacken
+UEFA Champions League,BSC Young Boys
+UEFA Champions League,Ballkani
+UEFA Champions League,Barcelona
+UEFA Champions League,Bate Borisov
+UEFA Champions League,Bayern München
+UEFA Champions League,Benfica
+UEFA Champions League,Borussia Dortmund
+UEFA Champions League,Breidablik
+UEFA Champions League,Buducnost Podgorica
+UEFA Champions League,Celtic
+UEFA Champions League,Dinamo Tbilisi
+UEFA Champions League,Dinamo Zagreb
+UEFA Champions League,Dnipro-1
+UEFA Champions League,FC Astana
+UEFA Champions League,FC Copenhagen
+UEFA Champions League,FC Porto
+UEFA Champions League,FC Urartu
+UEFA Champions League,FK Crvena Zvezda
+UEFA Champions League,FK Zalgiris Vilnius
+UEFA Champions League,Farul Constanta
+UEFA Champions League,Ferencvarosi TC
+UEFA Champions League,Feyenoord
+UEFA Champions League,Flora Tallinn
+UEFA Champions League,Galatasaray
+UEFA Champions League,Genk
+UEFA Champions League,HJK Helsinki
+UEFA Champions League,Hamrun Spartans
+UEFA Champions League,Inter
+UEFA Champions League,KI Klaksvik
+UEFA Champions League,Larne
+UEFA Champions League,Lazio
+UEFA Champions League,Lens
+UEFA Champions League,Lincoln Red Imps FC
+UEFA Champions League,Ludogorets
+UEFA Champions League,Maccabi Haifa
+UEFA Champions League,Manchester City
+UEFA Champions League,Manchester United
+UEFA Champions League,Marseille
+UEFA Champions League,Molde
+UEFA Champions League,Napoli
+UEFA Champions League,Newcastle
+UEFA Champions League,Olimpija Ljubljana
+UEFA Champions League,PSV Eindhoven
+UEFA Champions League,Panathinaikos
+UEFA Champions League,Paris Saint Germain
+UEFA Champions League,Partizani
+UEFA Champions League,Qarabag
+UEFA Champions League,RB Leipzig
+UEFA Champions League,Raków Częstochowa
+UEFA Champions League,Rangers
+UEFA Champions League,Real Madrid
+UEFA Champions League,Real Sociedad
+UEFA Champions League,Red Bull Salzburg
+UEFA Champions League,SC Braga
+UEFA Champions League,Servette FC
+UEFA Champions League,Sevilla
+UEFA Champions League,Shakhtar Donetsk
+UEFA Champions League,Shamrock Rovers
+UEFA Champions League,Sheriff Tiraspol
+UEFA Champions League,Slovan Bratislava
+UEFA Champions League,Sparta Praha
+UEFA Champions League,Struga
+UEFA Champions League,Sturm Graz
+UEFA Champions League,Swift Hesperange
+UEFA Champions League,TSC Backa Topola
+UEFA Champions League,The New Saints
+UEFA Champions League,Tre Penne
+UEFA Champions League,Union Berlin
+UEFA Champions League,Valmiera / BSS
+UEFA Champions League,Zrinjski
+UEFA Europa League,AC Milan
+UEFA Europa League,AEK Athens FC
+UEFA Europa League,AS Roma
+UEFA Europa League,Aberdeen
+UEFA Europa League,Ajax
+UEFA Europa League,Aris
+UEFA Europa League,Atalanta
+UEFA Europa League,BK Hacken
+UEFA Europa League,BSC Young Boys
+UEFA Europa League,Bate Borisov
+UEFA Europa League,Bayer Leverkusen
+UEFA Europa League,Benfica
+UEFA Europa League,Breidablik
+UEFA Europa League,Brighton
+UEFA Europa League,Cukaricki
+UEFA Europa League,Dinamo Zagreb
+UEFA Europa League,Dnipro-1
+UEFA Europa League,FC Astana
+UEFA Europa League,FC Lugano
+UEFA Europa League,FK Zalgiris Vilnius
+UEFA Europa League,Feyenoord
+UEFA Europa League,Galatasaray
+UEFA Europa League,Genk
+UEFA Europa League,HJK Helsinki
+UEFA Europa League,KI Klaksvik
+UEFA Europa League,Lask Linz
+UEFA Europa League,Lens
+UEFA Europa League,Liverpool
+UEFA Europa League,Ludogorets
+UEFA Europa League,Maccabi Haifa
+UEFA Europa League,Marseille
+UEFA Europa League,Molde
+UEFA Europa League,Olimpija Ljubljana
+UEFA Europa League,Olympiakos Piraeus
+UEFA Europa League,Panathinaikos
+UEFA Europa League,Qarabag
+UEFA Europa League,Raków Częstochowa
+UEFA Europa League,Rangers
+UEFA Europa League,Real Betis
+UEFA Europa League,Rennes
+UEFA Europa League,SC Braga
+UEFA Europa League,SC Freiburg
+UEFA Europa League,Servette FC
+UEFA Europa League,Shakhtar Donetsk
+UEFA Europa League,Sheriff Tiraspol
+UEFA Europa League,Slavia Praha
+UEFA Europa League,Slovan Bratislava
+UEFA Europa League,Sparta Praha
+UEFA Europa League,Sporting CP
+UEFA Europa League,Sturm Graz
+UEFA Europa League,TSC Backa Topola
+UEFA Europa League,Toulouse
+UEFA Europa League,Union St. Gilloise
+UEFA Europa League,Villarreal
+UEFA Europa League,West Ham
+UEFA Europa League,Zorya Luhansk
+UEFA Europa League,Zrinjski
+Championship,Airdrie United
+Championship,Alloa Athletic
+Championship,Arbroath
+Championship,Ayr Utd
+Championship,Dundee Utd
+Championship,Dunfermline
+Championship,Hamilton Academical
+Championship,Inverness CT
+Championship,Montrose
+Championship,Morton
+Championship,Partick
+Championship,Queen's Park
+Championship,Raith Rovers

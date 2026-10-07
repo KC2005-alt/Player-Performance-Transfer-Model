@@ -77,7 +77,7 @@ LEAGUES = {
     "Primeira Liga": 94,
 }
 
-# print(fetch_json(teams_url,headers=headers,params = {"league":39,"season":2024})["response"][0])
+
 def get_teams_from_league(league_id,league_name):
     season = int(input(f"Enter a season: "))
     league_dicts = LEAGUES
@@ -100,9 +100,7 @@ def get_teams_from_league(league_id,league_name):
     return team_names
 
 
-# print(get_teams_from_league(180,"La Liga"))
 
-# 
 def get_team_id(team_name):
    
     fetch = fetch_json(teams_url,params = {"name":team_name})
@@ -113,41 +111,35 @@ def get_team_id(team_name):
    
     return team_id[team_name]
 
-
 def get_player_id(team_id,player_name):
     player_url = "https://v3.football.api-sports.io/players/squads"
     fetch = fetch_json(player_url,params = {"team":team_id})
-    profile_url = "https://v3.football.api-sports.io/players/profiles"
-    profiles = fetch_json(profile_url)
     if fetch is None:
         return None
     
-    player_id = {}
-    players_fullName = {}
-
-
-
-    for player in fetch["response"][0]["players"]:
-        if player["name"] == player_name:
-            player_id[player_name] = player["id"]
-       
-   
-    if player_id is None:
-        return None
-    return player_id[player_name]
-
-
-
+    players = fetch["response"][0]["players"]
+    for i, player in enumerate(players):
+        print(i, player["name"], player["position"])
+    
+    for player in players:
+        if player_name in player["name"]:
+            return player["id"]
+    return None
+    
 def get_player_stats(player_id, team_id, season):
     while season < 2022 or season > 2024:
         season = int(input("Not a valid season. Try Again!: "))
     
-    fetch = fetch_json(player_url, params={"id": player_id, "season": season})
+    fetch = fetch_json(player_url, params={"id": player_id, "team": team_id, "season": season})
     if fetch is None or not fetch["response"]:
         return None
 
     player_stats = {}
     stats = fetch["response"][0]["statistics"]
+
+    # --- debug block: find which key is missing ---
+    for i, stat in enumerate(stats):
+        print(f"stat {i} ({stat['league']['name']}): {list(stat.keys())}")
 
     for stat in stats:
         competition = stat["league"]["name"]
@@ -207,11 +199,46 @@ def get_player_stats(player_id, team_id, season):
 
     return player_stats
 
+def get_all_teams(leagues_dict=LEAGUES):
+    """Get all teams from a list of leagues and save them to a CSV file"""
+    all_teams = []
+    for league_name, league_id in leagues_dict.items():
+        print(f"Fetching teams for league: {league_name} (ID: {league_id})")
+        league_teams = get_teams_from_league(int(league_id), league_name)
+        if league_teams is None or len(league_teams) < 10:
+            continue
+        for team in league_teams:
+            all_teams.append({"league": league_name, "team": team})
+    print(all_teams)
+    all_teams_df = pd.DataFrame(all_teams)
+    all_teams_df.to_csv("teams.csv", index=False)
+
+get_all_teams()
 
 
+def get_player_data(player_name, team_name, season=2024):
+    """Get player stats using player name and his current team"""
+    team_id = get_team_id(team_name)
+    if not team_id:
+        print(f"Team '{team_name}' not found")
+        return None
+    player_id = get_player_id(team_id, player_name)
+    if player_id is None:
+        return None
+    player_stats = get_player_stats(player_id, team_id, season)
+    records = []
+    for competition, stats in player_stats.items():
+        record = {"competition": competition}
+        record.update(stats)
+        records.append(record)
+    
+    player_df = pd.json_normalize(records)
+    player_df.to_csv("player_stats.csv", index=False)
+    return player_df
 
-print(get_player_stats(161907,49,2024))
-
+# player_name="C. Palmer"
+# team="Chelsea"
+# player_df=get_player_data(player_name,team)
 
 
 

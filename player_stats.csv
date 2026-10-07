@@ -1,0 +1,5 @@
+competition,position,goals,conceded_goals,assists,minutes,fouls_committed,shots.total,shots.on_target,passes.total,passes.key,passes.accurate,tackles.total,tackles.blocks,tackles.interceptions,duels.total,duels.won,dribbles.attempted,dribbles.success,dribbles.past,saves.total,saves.penalties saved,cards.yellow,cards.red
+Premier League,Midfielder,15.0,0,8.0,3199,15.0,86.0,51.0,1311.0,91.0,,34.0,1.0,11.0,268.0,147.0,98.0,51.0,,,,7,0
+League Cup,Midfielder,0.0,0,,0,,,,,,,,,,,,,,,,,0,0
+FA Cup,Midfielder,0.0,0,0.0,90,,3.0,1.0,37.0,,,1.0,,1.0,4.0,2.0,2.0,1.0,,,,0,0
+UEFA Europa Conference League,Midfielder,,0,3.0,401,1.0,13.0,6.0,236.0,8.0,,6.0,,1.0,41.0,16.0,17.0,7.0,,,,1,0
