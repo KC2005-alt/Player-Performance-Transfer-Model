@@ -4,32 +4,31 @@ Premier League,Aston Villa
 Premier League,Bournemouth
 Premier League,Brentford
 Premier League,Brighton
-Premier League,Burnley
 Premier League,Chelsea
 Premier League,Crystal Palace
 Premier League,Everton
 Premier League,Fulham
+Premier League,Ipswich
+Premier League,Leicester
 Premier League,Liverpool
-Premier League,Luton
 Premier League,Manchester City
 Premier League,Manchester United
 Premier League,Newcastle
 Premier League,Nottingham Forest
-Premier League,Sheffield Utd
+Premier League,Southampton
 Premier League,Tottenham
 Premier League,West Ham
 Premier League,Wolves
 La Liga,Alaves
-La Liga,Almeria
 La Liga,Athletic Club
 La Liga,Atletico Madrid
 La Liga,Barcelona
-La Liga,Cadiz
 La Liga,Celta Vigo
+La Liga,Espanyol
 La Liga,Getafe
 La Liga,Girona
-La Liga,Granada CF
 La Liga,Las Palmas
+La Liga,Leganes
 La Liga,Mallorca
 La Liga,Osasuna
 La Liga,Rayo Vallecano
@@ -38,15 +37,16 @@ La Liga,Real Madrid
 La Liga,Real Sociedad
 La Liga,Sevilla
 La Liga,Valencia
+La Liga,Valladolid
 La Liga,Villarreal
 Serie A,AC Milan
 Serie A,AS Roma
 Serie A,Atalanta
 Serie A,Bologna
 Serie A,Cagliari
+Serie A,Como
 Serie A,Empoli
 Serie A,Fiorentina
-Serie A,Frosinone
 Serie A,Genoa
 Serie A,Hellas Verona
 Serie A,Inter
@@ -55,12 +55,11 @@ Serie A,Lazio
 Serie A,Lecce
 Serie A,Monza
 Serie A,Napoli
-Serie A,Salernitana
-Serie A,Sassuolo
+Serie A,Parma
 Serie A,Torino
 Serie A,Udinese
+Serie A,Venezia
 Bundesliga,1. FC Heidenheim
-Bundesliga,1. FC Köln
 Bundesliga,1899 Hoffenheim
 Bundesliga,Bayer Leverkusen
 Bundesliga,Bayern München
@@ -68,21 +67,22 @@ Bundesliga,Borussia Dortmund
 Bundesliga,Borussia Mönchengladbach
 Bundesliga,Eintracht Frankfurt
 Bundesliga,FC Augsburg
+Bundesliga,FC St. Pauli
 Bundesliga,FSV Mainz 05
-Bundesliga,Fortuna Düsseldorf
+Bundesliga,Holstein Kiel
 Bundesliga,RB Leipzig
 Bundesliga,SC Freiburg
-Bundesliga,SV Darmstadt 98
+Bundesliga,SV Elversberg
 Bundesliga,Union Berlin
 Bundesliga,VfB Stuttgart
 Bundesliga,VfL Bochum
 Bundesliga,VfL Wolfsburg
 Bundesliga,Werder Bremen
-Ligue 1,Clermont Foot
+Ligue 1,Angers
+Ligue 1,Auxerre
 Ligue 1,Le Havre
 Ligue 1,Lens
 Ligue 1,Lille
-Ligue 1,Lorient
 Ligue 1,Lyon
 Ligue 1,Marseille
 Ligue 1,Metz
@@ -101,171 +101,277 @@ Eredivisie,ADO Den Haag
 Eredivisie,AZ Alkmaar
 Eredivisie,Ajax
 Eredivisie,Almere City FC
+Eredivisie,Cambuur
 Eredivisie,De Graafschap
+Eredivisie,Den Bosch
 Eredivisie,Dordrecht
-Eredivisie,Emmen
-Eredivisie,Excelsior
-Eredivisie,FC Volendam
 Eredivisie,Feyenoord
 Eredivisie,Fortuna Sittard
 Eredivisie,GO Ahead Eagles
+Eredivisie,Groningen
 Eredivisie,Heerenveen
 Eredivisie,Heracles
 Eredivisie,NAC Breda
 Eredivisie,NEC Nijmegen
 Eredivisie,PEC Zwolle
 Eredivisie,PSV Eindhoven
-Eredivisie,Roda
 Eredivisie,Sparta Rotterdam
+Eredivisie,Telstar
 Eredivisie,Twente
 Eredivisie,Utrecht
-Eredivisie,Vitesse
 Eredivisie,Waalwijk
+Eredivisie,Willem II
 UEFA Champions League,AC Milan
-UEFA Champions League,AEK Athens FC
-UEFA Champions League,Antwerp
-UEFA Champions League,Aris
+UEFA Champions League,Apoel Nicosia
 UEFA Champions League,Arsenal
+UEFA Champions League,Aston Villa
+UEFA Champions League,Atalanta
 UEFA Champions League,Atletico Madrid
-UEFA Champions League,Atlètic Club d'Escaldes
-UEFA Champions League,BK Hacken
 UEFA Champions League,BSC Young Boys
 UEFA Champions League,Ballkani
 UEFA Champions League,Barcelona
-UEFA Champions League,Bate Borisov
+UEFA Champions League,Bayer Leverkusen
 UEFA Champions League,Bayern München
 UEFA Champions League,Benfica
+UEFA Champions League,Bodo/Glimt
+UEFA Champions League,Bologna
+UEFA Champions League,Borac Banja Luka
 UEFA Champions League,Borussia Dortmund
-UEFA Champions League,Breidablik
-UEFA Champions League,Buducnost Podgorica
+UEFA Champions League,Celje
 UEFA Champions League,Celtic
-UEFA Champions League,Dinamo Tbilisi
+UEFA Champions League,Club Brugge KV
+UEFA Champions League,Dečić
+UEFA Champions League,Dinamo Batumi
+UEFA Champions League,Dinamo Minsk
 UEFA Champions League,Dinamo Zagreb
-UEFA Champions League,Dnipro-1
-UEFA Champions League,FC Astana
-UEFA Champions League,FC Copenhagen
-UEFA Champions League,FC Porto
-UEFA Champions League,FC Urartu
+UEFA Champions League,Dynamo Kyiv
+UEFA Champions League,Egnatia Rrogozhinë
+UEFA Champions League,FC Differdange 03
+UEFA Champions League,FC Lugano
+UEFA Champions League,FC Midtjylland
+UEFA Champions League,FCSB
 UEFA Champions League,FK Crvena Zvezda
-UEFA Champions League,FK Zalgiris Vilnius
-UEFA Champions League,Farul Constanta
+UEFA Champions League,FK Partizan
+UEFA Champions League,Fenerbahçe
 UEFA Champions League,Ferencvarosi TC
 UEFA Champions League,Feyenoord
 UEFA Champions League,Flora Tallinn
 UEFA Champions League,Galatasaray
-UEFA Champions League,Genk
+UEFA Champions League,Girona
 UEFA Champions League,HJK Helsinki
 UEFA Champions League,Hamrun Spartans
 UEFA Champions League,Inter
+UEFA Champions League,Jagiellonia
+UEFA Champions League,Juventus
 UEFA Champions League,KI Klaksvik
 UEFA Champions League,Larne
-UEFA Champions League,Lazio
-UEFA Champions League,Lens
+UEFA Champions League,Lille
 UEFA Champions League,Lincoln Red Imps FC
+UEFA Champions League,Liverpool
 UEFA Champions League,Ludogorets
-UEFA Champions League,Maccabi Haifa
+UEFA Champions League,Maccabi Tel Aviv
+UEFA Champions League,Malmo FF
 UEFA Champions League,Manchester City
-UEFA Champions League,Manchester United
-UEFA Champions League,Marseille
-UEFA Champions League,Molde
-UEFA Champions League,Napoli
-UEFA Champions League,Newcastle
-UEFA Champions League,Olimpija Ljubljana
+UEFA Champions League,Monaco
+UEFA Champions League,Ordabasy
+UEFA Champions League,PAOK
 UEFA Champions League,PSV Eindhoven
-UEFA Champions League,Panathinaikos
+UEFA Champions League,Panevėžys
 UEFA Champions League,Paris Saint Germain
-UEFA Champions League,Partizani
+UEFA Champions League,Petrocub
+UEFA Champions League,Pyunik Yerevan
 UEFA Champions League,Qarabag
 UEFA Champions League,RB Leipzig
-UEFA Champions League,Raków Częstochowa
 UEFA Champions League,Rangers
 UEFA Champions League,Real Madrid
-UEFA Champions League,Real Sociedad
 UEFA Champions League,Red Bull Salzburg
-UEFA Champions League,SC Braga
-UEFA Champions League,Servette FC
-UEFA Champions League,Sevilla
+UEFA Champions League,Rīgas FS
 UEFA Champions League,Shakhtar Donetsk
 UEFA Champions League,Shamrock Rovers
-UEFA Champions League,Sheriff Tiraspol
+UEFA Champions League,Slavia Praha
 UEFA Champions League,Slovan Bratislava
 UEFA Champions League,Sparta Praha
+UEFA Champions League,Sporting CP
+UEFA Champions League,Stade Brestois 29
 UEFA Champions League,Struga
 UEFA Champions League,Sturm Graz
-UEFA Champions League,Swift Hesperange
-UEFA Champions League,TSC Backa Topola
 UEFA Champions League,The New Saints
-UEFA Champions League,Tre Penne
-UEFA Champions League,Union Berlin
-UEFA Champions League,Valmiera / BSS
-UEFA Champions League,Zrinjski
-UEFA Europa League,AC Milan
-UEFA Europa League,AEK Athens FC
+UEFA Champions League,Twente
+UEFA Champions League,UE Santa Coloma
+UEFA Champions League,Union St. Gilloise
+UEFA Champions League,VfB Stuttgart
+UEFA Champions League,Vikingur Reykjavik
+UEFA Champions League,Virtus
+UEFA Europa League,1899 Hoffenheim
 UEFA Europa League,AS Roma
-UEFA Europa League,Aberdeen
+UEFA Europa League,AZ Alkmaar
 UEFA Europa League,Ajax
-UEFA Europa League,Aris
-UEFA Europa League,Atalanta
-UEFA Europa League,BK Hacken
-UEFA Europa League,BSC Young Boys
-UEFA Europa League,Bate Borisov
-UEFA Europa League,Bayer Leverkusen
-UEFA Europa League,Benfica
-UEFA Europa League,Breidablik
-UEFA Europa League,Brighton
-UEFA Europa League,Cukaricki
-UEFA Europa League,Dinamo Zagreb
-UEFA Europa League,Dnipro-1
-UEFA Europa League,FC Astana
+UEFA Europa League,Anderlecht
+UEFA Europa League,Apoel Nicosia
+UEFA Europa League,Athletic Club
+UEFA Europa League,Beşiktaş
+UEFA Europa League,Bodo/Glimt
+UEFA Europa League,Borac Banja Luka
+UEFA Europa League,Botev Plovdiv
+UEFA Europa League,Celje
+UEFA Europa League,Cercle Brugge
+UEFA Europa League,Corvinul Hunedoara
+UEFA Europa League,Dinamo Minsk
+UEFA Europa League,Dynamo Kyiv
+UEFA Europa League,Eintracht Frankfurt
 UEFA Europa League,FC Lugano
-UEFA Europa League,FK Zalgiris Vilnius
-UEFA Europa League,Feyenoord
+UEFA Europa League,FC Midtjylland
+UEFA Europa League,FC Porto
+UEFA Europa League,FCSB
+UEFA Europa League,FK Partizan
+UEFA Europa League,FK Tobol Kostanay
+UEFA Europa League,Fenerbahçe
+UEFA Europa League,Ferencvarosi TC
 UEFA Europa League,Galatasaray
-UEFA Europa League,Genk
-UEFA Europa League,HJK Helsinki
+UEFA Europa League,HNK Rijeka
+UEFA Europa League,Heart Of Midlothian
+UEFA Europa League,IF Elfsborg
+UEFA Europa League,Jagiellonia
 UEFA Europa League,KI Klaksvik
+UEFA Europa League,Kilmarnock
+UEFA Europa League,Kryvbas KR
 UEFA Europa League,Lask Linz
-UEFA Europa League,Lens
-UEFA Europa League,Liverpool
+UEFA Europa League,Lazio
+UEFA Europa League,Lincoln Red Imps FC
+UEFA Europa League,Llapi
 UEFA Europa League,Ludogorets
-UEFA Europa League,Maccabi Haifa
-UEFA Europa League,Marseille
+UEFA Europa League,Lyon
+UEFA Europa League,Maccabi Petah Tikva
+UEFA Europa League,Maccabi Tel Aviv
+UEFA Europa League,Malmo FF
+UEFA Europa League,Manchester United
+UEFA Europa League,Maribor
 UEFA Europa League,Molde
-UEFA Europa League,Olimpija Ljubljana
+UEFA Europa League,Nice
 UEFA Europa League,Olympiakos Piraeus
+UEFA Europa League,PAOK
+UEFA Europa League,Pafos
+UEFA Europa League,Paks
 UEFA Europa League,Panathinaikos
+UEFA Europa League,Panevėžys
+UEFA Europa League,Petrocub
+UEFA Europa League,Plzen
 UEFA Europa League,Qarabag
-UEFA Europa League,Raków Częstochowa
 UEFA Europa League,Rangers
-UEFA Europa League,Real Betis
-UEFA Europa League,Rennes
+UEFA Europa League,Rapid Vienna
+UEFA Europa League,Real Sociedad
+UEFA Europa League,Ružomberok
+UEFA Europa League,Rīgas FS
 UEFA Europa League,SC Braga
-UEFA Europa League,SC Freiburg
 UEFA Europa League,Servette FC
-UEFA Europa League,Shakhtar Donetsk
+UEFA Europa League,Shamrock Rovers
 UEFA Europa League,Sheriff Tiraspol
+UEFA Europa League,Silkeborg
 UEFA Europa League,Slavia Praha
-UEFA Europa League,Slovan Bratislava
-UEFA Europa League,Sparta Praha
-UEFA Europa League,Sporting CP
-UEFA Europa League,Sturm Graz
 UEFA Europa League,TSC Backa Topola
-UEFA Europa League,Toulouse
+UEFA Europa League,The New Saints
+UEFA Europa League,Tottenham
+UEFA Europa League,Trabzonspor
+UEFA Europa League,Twente
+UEFA Europa League,UE Santa Coloma
 UEFA Europa League,Union St. Gilloise
-UEFA Europa League,Villarreal
-UEFA Europa League,West Ham
-UEFA Europa League,Zorya Luhansk
-UEFA Europa League,Zrinjski
-Championship,Airdrie United
-Championship,Alloa Athletic
-Championship,Arbroath
-Championship,Ayr Utd
-Championship,Dundee Utd
-Championship,Dunfermline
-Championship,Hamilton Academical
-Championship,Inverness CT
-Championship,Montrose
-Championship,Morton
-Championship,Partick
-Championship,Queen's Park
-Championship,Raith Rovers
+UEFA Europa League,Vojvodina
+UEFA Europa League,Wisla Krakow
+UEFA Europa League,Zira
+UEFA Conference League,Albania
+UEFA Conference League,Austria
+UEFA Conference League,Belgium
+UEFA Conference League,Croatia
+UEFA Conference League,Czechia
+UEFA Conference League,Denmark
+UEFA Conference League,England
+UEFA Conference League,France
+UEFA Conference League,Georgia
+UEFA Conference League,Germany
+UEFA Conference League,Hungary
+UEFA Conference League,Italy
+UEFA Conference League,Netherlands
+UEFA Conference League,Poland
+UEFA Conference League,Portugal
+UEFA Conference League,Romania
+UEFA Conference League,Scotland
+UEFA Conference League,Serbia
+UEFA Conference League,Slovakia
+UEFA Conference League,Slovenia
+UEFA Conference League,Spain
+UEFA Conference League,Switzerland
+UEFA Conference League,Türkiye
+UEFA Conference League,Ukraine
+UEFA Super Cup,Albania
+UEFA Super Cup,Andorra
+UEFA Super Cup,Armenia
+UEFA Super Cup,Austria
+UEFA Super Cup,Azerbaijan
+UEFA Super Cup,Belarus
+UEFA Super Cup,Belgium
+UEFA Super Cup,Bosnia & Herzegovina
+UEFA Super Cup,Bulgaria
+UEFA Super Cup,Croatia
+UEFA Super Cup,Cyprus
+UEFA Super Cup,Czechia
+UEFA Super Cup,Denmark
+UEFA Super Cup,England
+UEFA Super Cup,Estonia
+UEFA Super Cup,FYR Macedonia
+UEFA Super Cup,Faroe Islands
+UEFA Super Cup,Finland
+UEFA Super Cup,France
+UEFA Super Cup,Georgia
+UEFA Super Cup,Germany
+UEFA Super Cup,Gibraltar
+UEFA Super Cup,Greece
+UEFA Super Cup,Hungary
+UEFA Super Cup,Iceland
+UEFA Super Cup,Israel
+UEFA Super Cup,Italy
+UEFA Super Cup,Kazakhstan
+UEFA Super Cup,Kosovo
+UEFA Super Cup,Latvia
+UEFA Super Cup,Liechtenstein
+UEFA Super Cup,Lithuania
+UEFA Super Cup,Luxembourg
+UEFA Super Cup,Malta
+UEFA Super Cup,Moldova
+UEFA Super Cup,Montenegro
+UEFA Super Cup,Netherlands
+UEFA Super Cup,Northern Ireland
+UEFA Super Cup,Norway
+UEFA Super Cup,Poland
+UEFA Super Cup,Portugal
+UEFA Super Cup,Rep. Of Ireland
+UEFA Super Cup,Romania
+UEFA Super Cup,San Marino
+UEFA Super Cup,Scotland
+UEFA Super Cup,Serbia
+UEFA Super Cup,Slovakia
+UEFA Super Cup,Slovenia
+UEFA Super Cup,Spain
+UEFA Super Cup,Sweden
+UEFA Super Cup,Switzerland
+UEFA Super Cup,Türkiye
+UEFA Super Cup,Ukraine
+UEFA Super Cup,Wales
+Primeira Liga,AVS
+Primeira Liga,Arouca
+Primeira Liga,Benfica
+Primeira Liga,Boavista
+Primeira Liga,Casa Pia
+Primeira Liga,Estoril
+Primeira Liga,Estrela
+Primeira Liga,FC Porto
+Primeira Liga,Famalicao
+Primeira Liga,Farense
+Primeira Liga,GIL Vicente
+Primeira Liga,Moreirense
+Primeira Liga,Nacional
+Primeira Liga,Rio Ave
+Primeira Liga,SC Braga
+Primeira Liga,Santa Clara
+Primeira Liga,Sporting CP
+Primeira Liga,Vitória SC
+Primeira Liga,Vizela

@@ -34,7 +34,7 @@ def fetch_json(url,headers = headers,params = None):
             print("Unauthorized. Check your API token or login.")
         elif status == 429:
             for i in range(1,4):
-                print(f"Rate limited. Attempt {i} of 3, waiting 6 seconds...")
+                print(f"Rate limited, waiting 6 seconds...")
                 time.sleep(6)
                 result = fetch_json(url, headers)
                 if result is not None:
@@ -77,7 +77,6 @@ LEAGUES = {
     "Primeira Liga": 94,
 }
 
-
 def get_teams_from_league(league_id,league_name):
     season = int(input(f"Enter a season: "))
     league_dicts = LEAGUES
@@ -98,8 +97,6 @@ def get_teams_from_league(league_id,league_name):
 
     team_names.sort()
     return team_names
-
-
 
 def get_team_id(team_name):
    
@@ -209,11 +206,10 @@ def get_all_teams(leagues_dict=LEAGUES):
             continue
         for team in league_teams:
             all_teams.append({"league": league_name, "team": team})
-    print(all_teams)
     all_teams_df = pd.DataFrame(all_teams)
     all_teams_df.to_csv("teams.csv", index=False)
 
-get_all_teams()
+# get_all_teams()
 
 
 def get_player_data(player_name, team_name, season=2024):
@@ -232,13 +228,13 @@ def get_player_data(player_name, team_name, season=2024):
         record.update(stats)
         records.append(record)
     
-    player_df = pd.json_normalize(records)
+    player_df = pd.DataFrame(records)
     player_df.to_csv("player_stats.csv", index=False)
     return player_df
 
-# player_name="C. Palmer"
-# team="Chelsea"
-# player_df=get_player_data(player_name,team)
+player_name="C. Palmer"
+team="Chelsea"
+player_df=get_player_data(player_name,team)
 
 
 

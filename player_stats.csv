@@ -1,5 +1,5 @@
-competition,position,goals,conceded_goals,assists,minutes,fouls_committed,shots.total,shots.on_target,passes.total,passes.key,passes.accurate,tackles.total,tackles.blocks,tackles.interceptions,duels.total,duels.won,dribbles.attempted,dribbles.success,dribbles.past,saves.total,saves.penalties saved,cards.yellow,cards.red
-Premier League,Midfielder,15.0,0,8.0,3199,15.0,86.0,51.0,1311.0,91.0,,34.0,1.0,11.0,268.0,147.0,98.0,51.0,,,,7,0
-League Cup,Midfielder,0.0,0,,0,,,,,,,,,,,,,,,,,0,0
-FA Cup,Midfielder,0.0,0,0.0,90,,3.0,1.0,37.0,,,1.0,,1.0,4.0,2.0,2.0,1.0,,,,0,0
-UEFA Europa Conference League,Midfielder,,0,3.0,401,1.0,13.0,6.0,236.0,8.0,,6.0,,1.0,41.0,16.0,17.0,7.0,,,,1,0
+competition,position,goals,conceded_goals,assists,minutes,shots,passes,tackles,duels,dribbles,saves,fouls_committed,cards
+Premier League,Midfielder,15.0,0,8.0,3199,"{'total': 86, 'on_target': 51}","{'total': 1311, 'key': 91, 'accurate': None}","{'total': 34, 'blocks': 1, 'interceptions': 11}","{'total': 268, 'won': 147}","{'attempted': 98, 'success': 51, 'past': None}","{'total': None, 'penalties saved': None}",15.0,"{'yellow': 7, 'red': 0}"
+League Cup,Midfielder,0.0,0,,0,"{'total': None, 'on_target': None}","{'total': None, 'key': None, 'accurate': None}","{'total': None, 'blocks': None, 'interceptions': None}","{'total': None, 'won': None}","{'attempted': None, 'success': None, 'past': None}","{'total': None, 'penalties saved': None}",,"{'yellow': 0, 'red': 0}"
+FA Cup,Midfielder,0.0,0,0.0,90,"{'total': 3, 'on_target': 1}","{'total': 37, 'key': None, 'accurate': None}","{'total': 1, 'blocks': None, 'interceptions': 1}","{'total': 4, 'won': 2}","{'attempted': 2, 'success': 1, 'past': None}","{'total': None, 'penalties saved': None}",,"{'yellow': 0, 'red': 0}"
+UEFA Europa Conference League,Midfielder,,0,3.0,401,"{'total': 13, 'on_target': 6}","{'total': 236, 'key': 8, 'accurate': None}","{'total': 6, 'blocks': None, 'interceptions': 1}","{'total': 41, 'won': 16}","{'attempted': 17, 'success': 7, 'past': None}","{'total': None, 'penalties saved': None}",1.0,"{'yellow': 1, 'red': 0}"
