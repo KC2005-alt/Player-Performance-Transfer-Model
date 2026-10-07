@@ -11,7 +11,7 @@ api = "2d4bfb855fc3a9892bae30bdeba090fe"
 
 leagues_url = "https://v3.football.api-sports.io/leagues"
 teams_url = "https://v3.football.api-sports.io/teams"
-player_url = "https://v3.football.api-sports.io/players/squads"
+player_url = "https://v3.football.api-sports.io/players"
 
 
 headers = {'x-apisports-key': api}
@@ -115,119 +115,102 @@ def get_team_id(team_name):
 
 
 def get_player_id(team_id,player_name):
-   
+    player_url = "https://v3.football.api-sports.io/players/squads"
     fetch = fetch_json(player_url,params = {"team":team_id})
-    
+    profile_url = "https://v3.football.api-sports.io/players/profiles"
+    profiles = fetch_json(profile_url)
     if fetch is None:
         return None
     
     player_id = {}
-    for player in fetch["response"][0]["players"]:
-        if player["name"].split(". ")[-1] == player_name:
-            player_id[player_name] = player["id"]
-        else:
-            player_id[player_name] = None
+    players_fullName = {}
 
+
+
+    for player in fetch["response"][0]["players"]:
+        if player["name"] == player_name:
+            player_id[player_name] = player["id"]
+       
+   
     if player_id is None:
         return None
     return player_id[player_name]
 
-print(get_player_id(49,'Bellingham'))
-        
 
 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# # def get_player_stats(league_name,club,player,season = 2026):
-# #     player_id = get_player_id(league_name,club,player)
-# #     player_url = f"http://api.football-data.org/v4/persons/{player_id}/matches"
-# #     fetch = fetch_json(player_url)
+def get_player_stats(player_id, team_id, season):
+    while season < 2022 or season > 2024:
+        season = int(input("Not a valid season. Try Again!: "))
     
+    fetch = fetch_json(player_url, params={"id": player_id, "season": season})
+    if fetch is None or not fetch["response"]:
+        return None
+
+    player_stats = {}
+    stats = fetch["response"][0]["statistics"]
+
+    for stat in stats:
+        competition = stat["league"]["name"]
+        position = stat["games"]["position"]
+        goals = stat["goals"]["total"]
+        conceded_goals = stat["goals"]["conceded"]
+        assists = stat["goals"]["assists"]
+        minutes = stat["games"]["minutes"]
+        shots_total = stat["shots"]["total"]
+        shots_on_target = stat["shots"]["on"]
+        passes_total = stat["passes"]["total"]
+        passes_key = stat["passes"]["key"]
+        passes_accurate = stat["passes"]["accuracy"]
+        tackles_total = stat["tackles"]["total"]
+        tackles_blocks = stat["tackles"]["blocks"]
+        tackles_interceptions = stat["tackles"]["interceptions"]
+        duels_total = stat["duels"]["total"]
+        duels_won = stat["duels"]["won"]
+        dribbles_attempted = stat["dribbles"]["attempts"]
+        dribbles_success = stat["dribbles"]["success"]
+        dribbled_past = stat["dribbles"]["past"]
+        saves = stat["goals"]["saves"]
+        save_penalties = stat["penalty"]["saved"]
+        fouls_committed = stat["fouls"]["committed"]
+        yellow_cards = stat["cards"]["yellow"]
+        red_cards = stat["cards"]["red"]
+
+        player_stats[competition] = {
+            "position": position,
+            "goals": goals,
+            "conceded_goals": conceded_goals,
+            "assists": assists,
+            "minutes": minutes,
+            "shots": {"total": shots_total, "on_target": shots_on_target},
+            "passes": {
+                "total": passes_total,
+                "key": passes_key,
+                "accurate": passes_accurate,
+            },
+            "tackles": {
+                "total": tackles_total,
+                "blocks": tackles_blocks,
+                "interceptions": tackles_interceptions,
+            },
+            "duels": {"total": duels_total, "won": duels_won},
+            "dribbles": {
+                "attempted": dribbles_attempted,
+                "success": dribbles_success,
+                "past": dribbled_past,
+            },
+            "saves": {"total":saves,"penalties saved": save_penalties},
+            "fouls_committed": fouls_committed,
+            "cards": {"yellow": yellow_cards, "red": red_cards},
+        }
+    player_fullName = fetch["response"][0]["player"]["firstname"] + " " + fetch["response"][0]["player"]["lastname"]
+    print(f"This is the {player_fullName}'s stats for the {season -1}/{season} season:\n")
+
+    return player_stats
 
 
-    
 
 
-
-
-
-
-
-
-    
-
-
-    
-
-# # def get_all_teams(league_dict=Leagues):
-# #     all_dfs = []
-# #     current_year = now.year
-
-# #     for league_name, league_abb in league_dict.items():
-# #         if league_name == "European Championship":
-# #             season = current_year - 2 if current_year % 4 == 2 else current_year
-# #             league_teams = get_teams_from_league(league_name, season)
-# #             print(f"Getting teams from {league_name} {season}")
-# #         elif league_name == "FIFA World Cup":
-# #             season = current_year 
-# #             league_teams = get_teams_from_league(league_name, season)
-            
-# #         else:
-# #             league_teams = get_teams_from_league(league_name)
-# #             print(f"Getting teams from {league_name} {current_year}")
-
-# #         time.sleep(2)
-# #         if league_teams is None:
-# #             continue
-
-# #         df = pd.DataFrame({league_name: league_teams})
-# #         all_dfs.append(df)  # <- the fix: save this iteration's df before it's overwritten
-
-# #     all_teams_df = pd.concat(all_dfs, axis=1)  # <- concat the WHOLE collected list, once
-# #     all_teams_df.to_csv("teams.csv", index=False)
-
-    
-
+print(get_player_stats(161907,49,2024))
 
 
 
