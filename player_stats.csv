@@ -1,5 +1,5 @@
-competition,position,goals,conceded_goals,assists,minutes,shots,passes,tackles,duels,dribbles,saves,fouls_committed,cards
-Premier League,Midfielder,15.0,0,8.0,3199,"{'total': 86, 'on_target': 51}","{'total': 1311, 'key': 91, 'accurate': None}","{'total': 34, 'blocks': 1, 'interceptions': 11}","{'total': 268, 'won': 147}","{'attempted': 98, 'success': 51, 'past': None}","{'total': None, 'penalties saved': None}",15.0,"{'yellow': 7, 'red': 0}"
-League Cup,Midfielder,0.0,0,,0,"{'total': None, 'on_target': None}","{'total': None, 'key': None, 'accurate': None}","{'total': None, 'blocks': None, 'interceptions': None}","{'total': None, 'won': None}","{'attempted': None, 'success': None, 'past': None}","{'total': None, 'penalties saved': None}",,"{'yellow': 0, 'red': 0}"
-FA Cup,Midfielder,0.0,0,0.0,90,"{'total': 3, 'on_target': 1}","{'total': 37, 'key': None, 'accurate': None}","{'total': 1, 'blocks': None, 'interceptions': 1}","{'total': 4, 'won': 2}","{'attempted': 2, 'success': 1, 'past': None}","{'total': None, 'penalties saved': None}",,"{'yellow': 0, 'red': 0}"
-UEFA Europa Conference League,Midfielder,,0,3.0,401,"{'total': 13, 'on_target': 6}","{'total': 236, 'key': 8, 'accurate': None}","{'total': 6, 'blocks': None, 'interceptions': 1}","{'total': 41, 'won': 16}","{'attempted': 17, 'success': 7, 'past': None}","{'total': None, 'penalties saved': None}",1.0,"{'yellow': 1, 'red': 0}"
+competition,position,goals_total,goals_conceded,goals_assists,minutes,shots_total,shots_on_target,passes_total,passes_key,passes_accurate,tackles_total,tackles_blocks,tackles_interceptions,duels_total,duels_won,dribbles_attempted,dribbles_success,dribbles_past,saves_total,penalties_saved,fouls_committed,cards_yellow,cards_red
+Premier League,Midfielder,0,0.0,1.0,803,,,422.0,7.0,,22.0,,16.0,97.0,51.0,16.0,10.0,,,,16.0,4,0
+FA Cup,Midfielder,0,0.0,0.0,46,,,30.0,2.0,,,,,2.0,2.0,,,,,,,0,0
+League Cup,Midfielder,0,,,0,,,,,,,,,,,,,,,,,0,0
+UEFA Europa Conference League,Midfielder,0,0.0,0.0,6,,,6.0,,,,,,1.0,1.0,,,,,,,0,0
