@@ -88,7 +88,7 @@ class Stats:
        
         for player in players:
             if player_name in player["name"]:
-                return player["id"]
+                return player["id"],player["name"]
         return None
 
     def get_player_stats(self, player_id, team_id, season):
@@ -131,18 +131,18 @@ class Stats:
         
         return player_stats
 
-    def get_player_data(self,team_name,player_name = "",season=2024):
+    def get_player_data(self, team_name, player_name="KC", season=2024):
         team_id = self.get_team_id(team_name)
         if not team_id:
             print(f"Team '{team_name}' not found")
             return None
-        player_id = self.get_player_id(team_id, player_name)
+        player_id,player_name= self.get_player_id(team_id, player_name)
         if player_id is None:
             return None
         player_stats = self.get_player_stats(player_id, team_id, season)
         records = []
         for competition, stats in player_stats.items():
-            record = {"competition": competition}
+            record = {"competition": competition, "player name": player_name, "player id": player_id}
             record.update(stats)
             records.append(record)
         
