@@ -75,7 +75,7 @@ class Stats:
             return None
         return fetch["response"][0]["team"]["id"]
 
-    def get_player_id(self, team_id, player_name=""):
+    def get_player_id(self, team_id, season = 2024,player_name=""):
         fetch = self.fetch_json(self.player_url + "/squads", params={"team": team_id})
         if fetch is None:
             return None
@@ -131,7 +131,7 @@ class Stats:
         
         return player_stats
 
-    def get_player_data(self, team_name, player_name="KC", season=2024):
+    def get_player_data(self, team_name,season=2024,player_name="KC"):
         team_id = self.get_team_id(team_name)
         if not team_id:
             print(f"Team '{team_name}' not found")
@@ -142,7 +142,7 @@ class Stats:
         player_stats = self.get_player_stats(player_id, team_id, season)
         records = []
         for competition, stats in player_stats.items():
-            record = {"competition": competition, "player name": player_name, "player id": player_id}
+            record = {"competition": competition, "player_name": player_name, "player_id": player_id}
             record.update(stats)
             records.append(record)
         
@@ -156,6 +156,6 @@ if __name__ == "__main__":
     api_key = os.getenv("API_FOOTBALL_KEY")
     stats = Stats(api_key)
     team_name = "Chelsea"
-    player_df = stats.get_player_data(team_name)
+    player_df = stats.get_player_data(team_name,2023)
     if player_df is not None:
         print(player_df)

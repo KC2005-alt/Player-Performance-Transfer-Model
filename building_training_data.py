@@ -9,20 +9,13 @@ def load_data():
     return stats_df, players_df, valuations_df
 
 
-def match_player_id(player_name, players_df, threshold=90):
+def match_player_id(player_name, players_df):
     tm_names = players_df["name"].tolist()
     your_name = player_name
-    match, score, idx = process.extractOne(your_name, tm_names, scorer=fuzz.WRatio)
-    print(match, score)
-    # TODO: compare the score to `threshold`
-    if score >= threshold:
-        player_id = players_df.iloc[idx]["player_id"]
-    else:
-        print(f"Low-confidence match: '{your_name}' -> '{match}' (score {score}) — check manually")
-        player_id = None
-    if player_id is not None:
-        return player_id
-    return None
+    match, score, idx = process.extractOne(your_name, tm_names)
+    player_id = players_df.iloc[idx]["player_id"]
+    return player_id
+    
 
 
 def get_valuation_for_season(player_id, valuations_df, season=2024):

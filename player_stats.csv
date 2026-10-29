@@ -1,5 +1,4 @@
-competition,player name,player id,position,goals_total,goals_conceded,goals_assists,minutes,shots_total,shots_on_target,passes_total,passes_key,passes_accurate,tackles_total,tackles_blocks,tackles_interceptions,duels_total,duels_won,dribbles_attempted,dribbles_success,dribbles_past,saves_total,penalties_saved,fouls_committed,cards_yellow,cards_red
-Premier League,C. Palmer,152982,Midfielder,15.0,0,8.0,3199,86.0,51.0,1311.0,91.0,,34.0,1.0,11.0,268.0,147.0,98.0,51.0,,,,15.0,7,0
-League Cup,C. Palmer,152982,Midfielder,0.0,0,,0,,,,,,,,,,,,,,,,,0,0
-FA Cup,C. Palmer,152982,Midfielder,0.0,0,0.0,90,3.0,1.0,37.0,,,1.0,,1.0,4.0,2.0,2.0,1.0,,,,,0,0
-UEFA Europa Conference League,C. Palmer,152982,Midfielder,,0,3.0,401,13.0,6.0,236.0,8.0,,6.0,,1.0,41.0,16.0,17.0,7.0,,,,1.0,1,0
+competition,player_name,player_id,position,goals_total,goals_conceded,goals_assists,minutes,shots_total,shots_on_target,passes_total,passes_key,passes_accurate,tackles_total,tackles_blocks,tackles_interceptions,duels_total,duels_won,dribbles_attempted,dribbles_success,dribbles_past,saves_total,penalties_saved,fouls_committed,cards_yellow,cards_red
+Premier League,C. Palmer,152982,Midfielder,22,0,11,2618,76,46,1302,72,,23,2.0,20,229,102,98,52,,,,23,7,0
+League Cup,C. Palmer,152982,Midfielder,2,0,2,552,17,12,261,12,,4,,5,51,25,23,9,,,,2,1,0
+FA Cup,C. Palmer,152982,Midfielder,1,0,2,443,12,7,172,7,,4,,3,26,14,12,7,,,,2,0,0

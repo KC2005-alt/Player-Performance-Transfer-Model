@@ -1,0 +1,4 @@
+competition,player_name,player_id,position,goals_total,goals_conceded,goals_assists,minutes,shots_total,shots_on_target,passes_total,passes_key,passes_accurate,tackles_total,tackles_blocks,tackles_interceptions,duels_total,duels_won,dribbles_attempted,dribbles_success,dribbles_past,saves_total,penalties_saved,fouls_committed,cards_yellow,cards_red,date,market_value_in_eur,current_club_name,current_club_id,player_club_domestic_competition_id
+Premier League,C. Palmer,568177,Midfielder,22,0,11,2618,76,46,1302,72,,23,2.0,20,229,102,98,52,,,,23,7,0,2024-10-01,90000000,Chelsea FC,631,GB1
+League Cup,C. Palmer,568177,Midfielder,2,0,2,552,17,12,261,12,,4,,5,51,25,23,9,,,,2,1,0,2024-10-01,90000000,Chelsea FC,631,GB1
+FA Cup,C. Palmer,568177,Midfielder,1,0,2,443,12,7,172,7,,4,,3,26,14,12,7,,,,2,0,0,2024-10-01,90000000,Chelsea FC,631,GB1
