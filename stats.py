@@ -75,7 +75,7 @@ class Stats:
             return None
         return fetch["response"][0]["team"]["id"]
 
-    def get_player_id(self, team_id, season = 2024,player_name=""):
+    def get_player_id(self, team_id, player_name=""):
         fetch = self.fetch_json(self.player_url + "/squads", params={"team": team_id})
         if fetch is None:
             return None

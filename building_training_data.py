@@ -28,6 +28,7 @@ def get_valuation_for_season(player_id, valuations_df, season=2024):
     target_date = pd.Timestamp(f"{season}-07-31")
 
     closest_row = player_valuations.iloc[(player_valuations["date"] - target_date).abs().argsort()[:1]]
+    closest_row = closest_row.rename(columns={"player_id": "tm_player_id"})
     return closest_row
 
 
@@ -41,6 +42,7 @@ def build_training_data(stats_df, players_df, valuations_df):
             valuation = get_valuation_for_season(player_id, valuations_df)
             if valuation is not None:
                 combined_row = stats.to_dict()
+                combined_row["player_name"] = players_df.loc[players_df["player_id"] == player_id, "name"].values[0]
                 combined_row.update(valuation.iloc[0].to_dict())  # Combine stats and valuation data
                 rows.append(combined_row)
     return pd.DataFrame(rows)
