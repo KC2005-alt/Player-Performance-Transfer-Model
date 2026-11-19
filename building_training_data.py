@@ -31,6 +31,19 @@ def get_valuation_for_season(player_id, valuations_df, season=2024):
     closest_row = closest_row.rename(columns={"player_id": "tm_player_id"})
     return closest_row
 
+def aggregate_player_stats(stats_df):
+    stats_df = stats_df[stats_df["minutes"] > 0]
+    # TODO: group by player and sum the countable stats
+    for _, stats in stats_df.iterrows():
+        player_name = stats["player_name"]  # Assuming stats_df has a "player_name" column
+        player_id = match_player_id(player_name, players_df)
+        if player_id is not None:
+            valuation = get_valuation_for_season(player_id, valuations_df)
+            if valuation is not None:
+                stats_df = pd.concat([stats_df,pd.DataFrame("players.csv")], ignore_index=True)])
+    # TODO: return the result as a normal DataFrame
+    return stats_df
+
 
 def build_training_data(stats_df, players_df, valuations_df):
     """Combine everything into one row-per-player-season training table."""
