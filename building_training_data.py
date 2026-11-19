@@ -62,10 +62,13 @@ def build_training_data(stats_df, players_df, valuations_df):
         valuation = get_valuation_for_season(player_id, valuations_df, stats["season"] + 1)
         if valuation is None:
             continue
+        tm_row = players_df.loc[players_df["player_id"] == player_id].iloc[0]
         combined_row = stats.to_dict()
-        combined_row["player_name"] = players_df.loc[players_df["player_id"] == player_id, "name"].values[0]
+        combined_row["player_name"] = tm_row["name"]
+        combined_row["sub_position"] = tm_row["sub_position"]
         combined_row.update(valuation.iloc[0].to_dict())
-        rows.append(combined_row)
+        date_of_birth = pd.to_datetime(tm_row["date_of_birth"])
+        combined_row["age"] = round((combined_row["date"] - date_of_birth).days / 365.25, 1)
     return pd.DataFrame(rows)
 
 
