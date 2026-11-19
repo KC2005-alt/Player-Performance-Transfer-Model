@@ -160,7 +160,8 @@ class Stats:
         player_stats = self.get_player_stats(player_id, team_id, season)
         records = []
         for competition, stats in player_stats.items():
-            record = {"competition": competition, "player_name": player_name, "player_id": player_id,"season":season}
+            record = {"competition": competition, "player_name": player_name, 
+                     "player_id": player_id, "season": season}
             record.update(stats)
             records.append(record)
         
@@ -174,7 +175,7 @@ if __name__ == "__main__":
     load_dotenv()
     api_key = os.getenv("API_FOOTBALL_KEY")
     stats = Stats(api_key)
-    team_name = "Lyon"
-    player_df = stats.get_player_data(team_name,2023)
+    team_name = "Brighton"
+    player_df = stats.get_player_data(team_name,2024)
     if player_df is not None:
         print(player_df)
