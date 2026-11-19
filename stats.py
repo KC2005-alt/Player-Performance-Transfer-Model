@@ -74,23 +74,32 @@ class Stats:
         if fetch is None:
             return None
         return fetch["response"][0]["team"]["id"]
+    
+    def get_squad(self, team_id, season):
+        squad = []
+        page = 1
+        while True:
+            fetch = self.fetch_json(self.player_url, params={"team": team_id, "season": season, "page": page})
+            if fetch is None:
+                return squad
+            for item in fetch["response"]:
+                squad.append((item["player"]["id"], item["player"]["name"]))
+            if page >= fetch["paging"]["total"]:
+                return squad
+            page += 1
 
-    def get_player_id(self, team_id, player_name=""):
-        fetch = self.fetch_json(self.player_url + "/squads", params={"team": team_id})
-        if fetch is None:
+    def get_player_id(self, team_id, season):
+        squad = self.get_squad(team_id, season)
+        if not squad:
             return None
-        
-        players = fetch["response"][0]["players"]
-        for name in players:
-            print(name["name"])
-        
+        for _, name in sorted(squad, key=lambda p: p[1]):
+            print(name)
         player_name = input("What player do you want: ")
-       
-        for player in players:
-            if player_name in player["name"]:
-                return player["id"],player["name"]
+        for player_id, name in squad:
+            if player_name.lower() in name.lower():
+                return player_id, name
         return None
-
+    
     def get_player_stats(self, player_id, team_id, season):
         while season < 2022 or season > 2024:
             season = int(input("Not a valid season. Try Again!: "))
@@ -133,29 +142,39 @@ class Stats:
 
     def get_player_data(self, team_name,season=2024,player_name="KC"):
         team_id = self.get_team_id(team_name)
+
         if not team_id:
             print(f"Team '{team_name}' not found")
             return None
-        player_id,player_name= self.get_player_id(team_id, player_name)
+        
+       
+        result = self.get_player_id(team_id, season)
+        if result is None:
+            print("Player not found for that team and season")
+            return None
+        player_id, player_name = result
+
         if player_id is None:
             return None
+        
         player_stats = self.get_player_stats(player_id, team_id, season)
         records = []
         for competition, stats in player_stats.items():
-            record = {"competition": competition, "player_name": player_name, "player_id": player_id}
+            record = {"competition": competition, "player_name": player_name, "player_id": player_id,"season":season}
             record.update(stats)
             records.append(record)
         
         player_df = pd.DataFrame(records)
-        player_df.to_csv("player_stats.csv", index=False)
-        return player_df
+        file_exists = os.path.exists("player_stats.csv")
+        player_df.to_csv("player_stats.csv", mode="a", header=not file_exists, index=False)
 
+        return player_df
 
 if __name__ == "__main__":
     load_dotenv()
     api_key = os.getenv("API_FOOTBALL_KEY")
     stats = Stats(api_key)
-    team_name = "Chelsea"
+    team_name = "Lyon"
     player_df = stats.get_player_data(team_name,2023)
     if player_df is not None:
         print(player_df)
