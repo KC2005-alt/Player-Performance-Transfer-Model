@@ -34,19 +34,24 @@ def get_valuation_for_season(player_id, valuations_df, season=2024):
 def aggregate_player_stats(stats_df):
     stats_df = stats_df[stats_df["minutes"] > 0]
     # TODO: group by player and sum the countable stats
-    for _, stats in stats_df.iterrows():
-        player_name = stats["player_name"]  # Assuming stats_df has a "player_name" column
-        player_id = match_player_id(player_name, players_df)
-        if player_id is not None:
-            valuation = get_valuation_for_season(player_id, valuations_df)
-            if valuation is not None:
-                stats_df = pd.concat([stats_df,pd.DataFrame("players.csv")], ignore_index=True)])
-    # TODO: return the result as a normal DataFrame
-    return stats_df
+    cols = [
+        "goals_total", "goals_assists", "minutes",
+        "shots_total", "shots_on_target",
+        "passes_total", "passes_key",
+        "tackles_total", "tackles_blocks", "tackles_interceptions",
+        "duels_total", "duels_won",
+        "dribbles_attempted", "dribbles_success", "dribbles_past",
+        "fouls_committed", "cards_yellow", "cards_red",
+    ]
+    
+    return stats_df.groupby(["player_name", "player_id", "season", "position"], as_index=False)[cols].sum()
+
+
 
 
 def build_training_data(stats_df, players_df, valuations_df):
     """Combine everything into one row-per-player-season training table."""
+    stats_df = aggregate_player_stats(stats_df)
     rows = []
     for _, stats in stats_df.iterrows():
         player_name = stats["player_name"]  # Assuming stats_df has a "player_name" column
