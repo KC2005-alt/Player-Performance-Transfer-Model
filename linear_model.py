@@ -135,7 +135,7 @@ def plot_results(df, model):
     plt.show()
 
 if __name__ == "__main__":
-    df = pd.read_csv("training_data.csv")
+    df = pd.read_csv("attacking_mids_data.csv")
     df = add_score(df)
     df["value_m"] = df["market_value_in_eur"] / 1e6
     model, df = fit_value_model(df)
