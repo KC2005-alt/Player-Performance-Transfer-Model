@@ -71,7 +71,7 @@ def add_score(df, group_col="sub_position"):
 
 # --- 4. Regression: score -> market value ----------------------------------
 def fit_value_model(df):
-    X = df[["score"]].values
+    X = df[["score", "age"]].values
     y = df["market_value_in_eur"].values / 1e6      # value in millions of euros
     model = LinearRegression().fit(X, y)
     df["predicted_value"] = model.predict(X)
@@ -106,7 +106,7 @@ if __name__ == "__main__":
     df = add_score(df)
     df["value_m"] = df["market_value_in_eur"] / 1e6
     model, df = fit_value_model(df)
-    out = df[["player_name", "score", "market_value_in_eur", "predicted_value", "gap"]]
+    out = df[["player_name", "score", "value_m", "predicted_value", "gap"]]
     print(out.round(2).to_string(index=False))
     plot_results(df, model)
     
