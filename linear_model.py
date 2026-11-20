@@ -77,7 +77,7 @@ def fit_value_model(df):
     df["predicted_value"] = model.predict(X)
     df["gap"] = df["value_m"] - df["predicted_value"]
     print("R-squared:", round(r2_score(y, model.predict(X)), 3))
-    print("Coefficient:", model.coef_[0], "Intercept:", model.intercept_)
+    print("Coefficients (score, age):", model.coef_, "Intercept:", model.intercept_)
     return model, df
 
 
