@@ -102,30 +102,16 @@ def predict_player(new_player, train_df, model):
         return None
     return model.predict(row[["score", "age"]].values)[0]
 
-def predict_from_name(player_name, team, season, df, model, stats):
-    _, players_df, valuations_df = load_data()
-    player_df = stats.get_player_data(team, season, player_name, save=False)
-    if player_df is None:
-        return None
-    new_player = build_training_data(player_df, players_df, valuations_df)
-    if new_player.empty:
-        print("Could not match this player to Transfermarkt")
-        return None
-    new_player["value_m"] = new_player["market_value_in_eur"] / 1e6
-    predicted = predict_player(new_player, df, model)
-    if predicted is None:
-        return None
-    actual = new_player["value_m"].iloc[0]
-    print(f"{new_player['player_name'].iloc[0]}: predicted {predicted:.0f}m, actual {actual:.0f}m, gap {actual - predicted:+.0f}m")
-    return predicted
-
-
 def plot_results(df, model):
     sns.set_theme(style="whitegrid")
+    plt.figure(figsize=(12, 8))
 
     # Predicted value from the linear regression model (score and age)
     df["predicted_plot"] = model.predict(df[["score", "age"]].values)
 
+    left_side = ["Jamal Musiala"]
+
+    
     # Create scatterplot for actual market value vs predicted market value
     sns.scatterplot(x="predicted_plot", y="value_m", data=df, s=90)
 
@@ -135,9 +121,14 @@ def plot_results(df, model):
 
     # Name each player next to their dot
     for _, row in df.iterrows():
-        plt.text(row["predicted_plot"] + 1, row["value_m"] + 1, row["player_name"], fontsize=8)
+        if row["player_name"] in left_side:
+            plt.text(row["predicted_plot"] - 1, row["value_m"] + 1,
+                    row["player_name"], fontsize=8, ha="right")
+        else:
+            plt.text(row["predicted_plot"] + 1, row["value_m"] + 1,
+                    row["player_name"], fontsize=8, ha="left")
+
     
-    plt.figure(figsize=(12, 8))
     plt.title("Attacking Midfielder Actual Market Value based on Predicted Value")
     plt.xlabel("Predicted Market Value (millions of euros)")
     plt.ylabel("Actual Market Value (millions of euros)")
@@ -155,5 +146,5 @@ if __name__ == "__main__":
     plot_results(df, model)
     load_dotenv()
     stats = Stats(os.getenv("API_FOOTBALL_KEY"))
-    predict_from_name("De Bruyne", "Manchester City", 2024, df, model, stats)
+   
         
