@@ -50,9 +50,12 @@ def fit_value_model(df):
 def plot_results(df, model):
     sns.set_theme(style="whitegrid")
 
-    # Create scatterplot with a linear regression line for value vs score
-    sns.regplot(x="score", y="value_m", data=df, ci=None,
-                scatter_kws={"s": 90}, line_kws={"color": "grey", "linestyle": "--"})
+    # Create scatterplot for market value vs performance score
+    sns.scatterplot(x="score", y="value_m", data=df, s=90)
+
+    # Line drawn from the linear regression model's predictions
+    xs = np.linspace(df["score"].min(), df["score"].max(), 100)
+    plt.plot(xs, model.predict(xs.reshape(-1, 1)), color="grey", linestyle="--")
 
     # Name each player next to their dot
     for _, row in df.iterrows():
