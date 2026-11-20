@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # --- 1. Settings you can change --------------------------------------------
-POSITIVE_WEIGHTS = {
+WEIGHTS = {
     "Centre-Forward":     {"goals_total": 3, "shots_on_target": 2, "shots_total": 1,
                            "goals_assists": 1.5, "duels_won": 0.5},
     "Second Striker":     {"goals_total": 2.5, "goals_assists": 2, "shots_on_target": 1.5,
@@ -37,26 +37,37 @@ POSITIVE_WEIGHTS = {
 
 CARD_WEIGHTS = {"cards_yellow": 1, "cards_red": 3}   # penalty for every position
 CARD_PENALTY = 0.2
+MIN_MINUTES = 900            # ignore players with too little playing time
+
+# Columns that are already rates (e.g., percentages) and don't need per-90 adjustment
+RATE_COLS = {"save_pct"}
+
+# Columns where lower values are better (e.g., cards, goals conceded)
+LOWER_IS_BETTER = {"cards_yellow", "cards_red", "goals_conceded"}
 
 
-# --- 2. Per-90 rates -------------------------------------------------------
-def add_per_90(df, columns):
-    for col in columns:
-        df[col + "_p90"] = df[col] / (df["minutes"] / 90)
+def score_group(group, name):
+    weights = WEIGHTS[name]
+    cols = list(weights) + list(CARD_WEIGHTS)
+    data = group[cols].copy()
+    per90_cols = [c for c in cols if c not in RATE_COLS]
+    data[per90_cols] = data[per90_cols].div(group["minutes"] / 90, axis=0)
+    ranks = data.rank(pct=True)
+    for c in LOWER_IS_BETTER & set(cols):
+        ranks[c] = 1 - ranks[c] + 1 / len(group)
+    good = sum(ranks[c] * w for c, w in weights.items()) / sum(weights.values())
+    bad = sum(ranks[c] * w for c, w in CARD_WEIGHTS.items()) / sum(CARD_WEIGHTS.values())
+    return good - CARD_PENALTY * bad
+
+
+def add_score(df, group_col="sub_position"):
+    df = df[df["minutes"] >= MIN_MINUTES].copy()
+    if "saves_total" in df.columns:
+        df["save_pct"] = df["saves_total"] / (df["saves_total"] + df["goals_conceded"])
+    df["score"] = 0.0
+    for name, group in df.groupby(group_col):
+        df.loc[group.index, "score"] = score_group(group, name)
     return df
-
-
-# --- 3. Score within each position group -----------------------------------
-def add_score(df, group_col="position"):
-    all_cols = list(POSITIVE_WEIGHTS) + list(CARD_WEIGHTS)
-    df = add_per_90(df, all_cols)
-    ranks = df.groupby(group_col)[[c + "_p90" for c in all_cols]].rank(pct=True)
-
-    good = sum(ranks[c + "_p90"] * w for c, w in POSITIVE_WEIGHTS.items()) / sum(POSITIVE_WEIGHTS.values())
-    bad = sum(ranks[c + "_p90"] * w for c, w in CARD_WEIGHTS.items()) / sum(CARD_WEIGHTS.values())
-    df["score"] = good - CARD_PENALTY * bad
-    return df
-
 
 # --- 4. Regression: score -> market value ----------------------------------
 def fit_value_model(df):
