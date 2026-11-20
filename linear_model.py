@@ -84,21 +84,23 @@ def fit_value_model(df):
 def plot_results(df, model):
     sns.set_theme(style="whitegrid")
 
-    # Create scatterplot for market value vs performance score
-    sns.scatterplot(x="score", y="value_m", data=df, s=90)
+    # Predicted value from the linear regression model (score and age)
+    df["predicted_plot"] = model.predict(df[["score", "age"]].values)
 
-    # Line drawn from the linear regression model's predictions
-    xs = np.linspace(df["score"].min(), df["score"].max(), 100)
-    plt.plot(xs, model.predict(xs.reshape(-1, 1)), color="grey", linestyle="--")
+    # Create scatterplot for actual market value vs predicted market value
+    sns.scatterplot(x="predicted_plot", y="value_m", data=df, s=90)
+
+    # Perfect prediction line: dots on it are valued exactly as the model predicts
+    top = max(df["predicted_plot"].max(), df["value_m"].max()) + 10
+    plt.plot([0, top], [0, top], color="grey", linestyle="--")
 
     # Name each player next to their dot
     for _, row in df.iterrows():
-        plt.text(row["score"] + 0.01, row["value_m"] + 2, row["player_name"])
+        plt.text(row["predicted_plot"] + 2, row["value_m"] + 2, row["player_name"])
 
-    plt.xlim(df["score"].min() - 0.05, df["score"].max() + 0.12)
-    plt.title("Midfielder Market Value based on Performance Score")
-    plt.xlabel("Performance Score")
-    plt.ylabel("Market Value (millions of euros)")
+    plt.title("Attacking Midfielder Actual Market Value based on Predicted Value")
+    plt.xlabel("Predicted Market Value (millions of euros)")
+    plt.ylabel("Actual Market Value (millions of euros)")
     plt.show()
 
 if __name__ == "__main__":
