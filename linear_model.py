@@ -132,10 +132,26 @@ def plot_results(df, model):
     plt.title("Attacking Midfielder Actual Market Value based on Predicted Value")
     plt.xlabel("Predicted Market Value (millions of euros)")
     plt.ylabel("Actual Market Value (millions of euros)")
+    plt.savefig("value_vs_score.png", dpi=150)
     plt.show()
+    
 
 if __name__ == "__main__":
-    df = pd.read_csv("attacking_mids_data.csv")
+    position = "Attacking Midfield"      # <-- the only line you change
+
+    # Groups you may want to combine, so each model has enough players
+    GROUPS = {
+        "Attacking Midfield": ["Attacking Midfield"],
+        "Central Midfield":   ["Central Midfield", "Defensive Midfield"],
+        "Winger":             ["Left Winger", "Right Winger"],
+        "Striker":            ["Centre-Forward", "Second Striker"],
+        "Full-Back":          ["Left-Back", "Right-Back"],
+        "Centre-Back":        ["Centre-Back"],
+        "Goalkeeper":         ["Goalkeeper"],
+    }
+
+    df = pd.read_csv("training_data.csv")
+    df = df[df["sub_position"].isin(GROUPS[position])].copy()
     df = add_score(df)
     df["value_m"] = df["market_value_in_eur"] / 1e6
     model, df = fit_value_model(df)
