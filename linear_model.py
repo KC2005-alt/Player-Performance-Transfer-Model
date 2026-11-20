@@ -135,8 +135,9 @@ def plot_results(df, model):
 
     # Name each player next to their dot
     for _, row in df.iterrows():
-        plt.text(row["predicted_plot"] + 2, row["value_m"] + 2, row["player_name"])
-
+        plt.text(row["predicted_plot"] + 1, row["value_m"] + 1, row["player_name"], fontsize=8)
+    
+    plt.figure(figsize=(12, 8))
     plt.title("Attacking Midfielder Actual Market Value based on Predicted Value")
     plt.xlabel("Predicted Market Value (millions of euros)")
     plt.ylabel("Actual Market Value (millions of euros)")
