@@ -147,13 +147,12 @@ if __name__ == "__main__":
     df = add_score(df)
     df["value_m"] = df["market_value_in_eur"] / 1e6
     model, df = fit_value_model(df)
-    load_dotenv()
-    stats = Stats(os.getenv("API_FOOTBALL_KEY"))
-    predict_from_name("Foden", "Manchester City", 2024, df, model, stats)
     out = df[["player_name", "score", "value_m", "predicted_value", "gap"]]
     print(out.round(2).to_string(index=False))
     for columns in (["score"], ["age"], ["score", "age"]):
         print(columns, "average error:", round(check_model(df, columns), 1))
     plot_results(df, model)
-    prediction = predict_player(new_player, df, model)
-    
+    load_dotenv()
+    stats = Stats(os.getenv("API_FOOTBALL_KEY"))
+    predict_from_name("Foden", "Manchester City", 2024, df, model, stats)
+        
