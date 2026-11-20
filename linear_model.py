@@ -154,5 +154,5 @@ if __name__ == "__main__":
     plot_results(df, model)
     load_dotenv()
     stats = Stats(os.getenv("API_FOOTBALL_KEY"))
-    predict_from_name("Foden", "Manchester City", 2024, df, model, stats)
+    predict_from_name("De Bruyne", "Manchester City", 2024, df, model, stats)
         
