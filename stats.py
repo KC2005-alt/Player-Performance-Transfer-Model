@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 
 
+
 class Stats:
     def __init__(self, api_key):
         self.api_key = api_key
@@ -88,13 +89,14 @@ class Stats:
                 return squad
             page += 1
 
-    def get_player_id(self, team_id, season):
+    def get_player_id(self, team_id, season, player_name=None):
         squad = self.get_squad(team_id, season)
         if not squad:
             return None
-        for _, name in sorted(squad, key=lambda p: p[1]):
-            print(name)
-        player_name = input("What player do you want: ")
+        if player_name is None:                      # old behaviour: show squad and ask
+            for _, name in sorted(squad, key=lambda p: p[1]):
+                print(name)
+            player_name = input("What player do you want: ")
         for player_id, name in squad:
             if player_name.lower() in name.lower():
                 return player_id, name
@@ -140,39 +142,39 @@ class Stats:
         
         return player_stats
 
-    def get_player_data(self, team_name = "Chelsea",season=2024,player_name="KC"):
-        team_name = input("What team do you want? ")
+    def get_player_data(self, team_name=None, season=None, player_name=None, save=True):
+        if team_name is None:
+            team_name = input("What team do you want? ")
+        if season is None:
+            season = int(input("What season do you want? "))
         team_id = self.get_team_id(team_name)
-        season = int(input("What season do you want? "))
-        print(f"Getting stats from {season - 1}/{season}")   
         if not team_id:
             print(f"Team '{team_name}' not found")
             return None
-        
-       
-        result = self.get_player_id(team_id, season)
+
+        result = self.get_player_id(team_id, season, player_name)
         if result is None:
             print("Player not found for that team and season")
             return None
         player_id, player_name = result
 
-        if player_id is None:
-            return None
-        
         player_stats = self.get_player_stats(player_id, team_id, season)
+        if player_stats is None:
+            print("No stats found for that player")
+            return None
         records = []
         for competition, stats in player_stats.items():
-            record = {"competition": competition, "player_name": player_name, 
-                     "player_id": player_id, "season": season}
+            record = {"competition": competition, "player_name": player_name,
+                    "player_id": player_id, "season": season}
             record.update(stats)
             records.append(record)
-        
+
         player_df = pd.DataFrame(records)
-        file_exists = os.path.exists("player_stats.csv")
-        player_df.to_csv("player_stats.csv", mode="a", header=not file_exists, index=False)
-
+        if save:
+            file_exists = os.path.exists("player_stats.csv")
+            player_df.to_csv("player_stats.csv", mode="a", header=not file_exists, index=False)
         return player_df
-
+    
 if __name__ == "__main__":
     load_dotenv()
     api_key = os.getenv("API_FOOTBALL_KEY")

@@ -5,7 +5,10 @@ from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import cross_val_predict, LeaveOneOut
-
+import os
+from dotenv import load_dotenv
+from stats import Stats
+from building_training_data import build_training_data, load_data
 
 # --- 1. Settings you can change --------------------------------------------
 WEIGHTS = {
@@ -71,11 +74,11 @@ def add_score(df, group_col="sub_position"):
         df.loc[group.index, "score"] = score_group(group, name)
     return df
 
-def check_model(df):
-    X = df[["score", "age"]].values
+def check_model(df, columns):
+    X = df[columns].values
     y = df["value_m"].values
     predicted = cross_val_predict(LinearRegression(), X, y, cv=LeaveOneOut())
-    print("Average error on unseen players (millions of euro)")
+    return np.abs(y - predicted).mean()
 
 # --- 4. Regression: score -> market value ----------------------------------
 def fit_value_model(df):
@@ -87,6 +90,34 @@ def fit_value_model(df):
     print("R-squared:", round(r2_score(y, model.predict(X)), 3))
     print("Coefficients (score, age):", model.coef_, "Intercept:", model.intercept_)
     return model, df
+
+def predict_player(new_player, train_df, model):
+    """new_player: one-row DataFrame with the same stat columns as training_data.csv.
+    Returns his predicted value (millions of euros), scored against the players in train_df."""
+    combined = pd.concat([train_df, new_player], ignore_index=True)
+    combined = add_score(combined)
+    row = combined[combined["player_name"] == new_player["player_name"].iloc[0]]
+    if row.empty:
+        print("Not enough minutes played to score this player")
+        return None
+    return model.predict(row[["score", "age"]].values)[0]
+
+def predict_from_name(player_name, team, season, df, model, stats):
+    _, players_df, valuations_df = load_data()
+    player_df = stats.get_player_data(team, season, player_name, save=False)
+    if player_df is None:
+        return None
+    new_player = build_training_data(player_df, players_df, valuations_df)
+    if new_player.empty:
+        print("Could not match this player to Transfermarkt")
+        return None
+    new_player["value_m"] = new_player["market_value_in_eur"] / 1e6
+    predicted = predict_player(new_player, df, model)
+    if predicted is None:
+        return None
+    actual = new_player["value_m"].iloc[0]
+    print(f"{new_player['player_name'].iloc[0]}: predicted {predicted:.0f}m, actual {actual:.0f}m, gap {actual - predicted:+.0f}m")
+    return predicted
 
 
 def plot_results(df, model):
@@ -116,7 +147,13 @@ if __name__ == "__main__":
     df = add_score(df)
     df["value_m"] = df["market_value_in_eur"] / 1e6
     model, df = fit_value_model(df)
+    load_dotenv()
+    stats = Stats(os.getenv("API_FOOTBALL_KEY"))
+    predict_from_name("Foden", "Manchester City", 2024, df, model, stats)
     out = df[["player_name", "score", "value_m", "predicted_value", "gap"]]
     print(out.round(2).to_string(index=False))
+    for columns in (["score"], ["age"], ["score", "age"]):
+        print(columns, "average error:", round(check_model(df, columns), 1))
     plot_results(df, model)
+    prediction = predict_player(new_player, df, model)
     
