@@ -140,9 +140,11 @@ class Stats:
         
         return player_stats
 
-    def get_player_data(self, team_name,season=2024,player_name="KC"):
+    def get_player_data(self, team_name = "Chelsea",season=2024,player_name="KC"):
+        team_name = input("What team do you want? ")
         team_id = self.get_team_id(team_name)
-
+        season = int(input("What season do you want? "))
+        print(f"Getting stats from {season - 1}/{season}")   
         if not team_id:
             print(f"Team '{team_name}' not found")
             return None
@@ -175,7 +177,7 @@ if __name__ == "__main__":
     load_dotenv()
     api_key = os.getenv("API_FOOTBALL_KEY")
     stats = Stats(api_key)
-    team_name = "Brighton"
-    player_df = stats.get_player_data(team_name,2024)
+    
+    player_df = stats.get_player_data()
     if player_df is not None:
         print(player_df)

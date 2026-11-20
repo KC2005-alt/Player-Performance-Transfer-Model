@@ -6,13 +6,36 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # --- 1. Settings you can change --------------------------------------------
-POSITIVE_WEIGHTS = {
-    "goals_total": 2, "goals_assists": 2,
-    "shots_total": 1, "shots_on_target": 1,
-    "passes_key": 1.5, "passes_total": 0.5,
-    "dribbles_success": 1,
+WEIGHTS = {
+    "Centre-Forward":     {"goals_total": 3, "shots_on_target": 2, "shots_total": 1,
+                           "goals_assists": 1.5, "duels_won": 0.5},
+    "Second Striker":     {"goals_total": 2.5, "goals_assists": 2, "shots_on_target": 1.5,
+                           "passes_key": 1.5, "dribbles_success": 1},
+    "Left Winger":        {"goals_total": 2, "goals_assists": 2, "dribbles_success": 2,
+                           "passes_key": 1.5, "shots_on_target": 1},
+    "Right Winger":       {"goals_total": 2, "goals_assists": 2, "dribbles_success": 2,
+                           "passes_key": 1.5, "shots_on_target": 1},
+    "Attacking Midfield": {"goals_total": 2, "goals_assists": 2, "passes_key": 2,
+                           "dribbles_success": 1, "shots_on_target": 1},
+    "Central Midfield":   {"goals_assists": 1.5, "passes_key": 1.5, "passes_total": 1,
+                           "tackles_interceptions": 1.5, "duels_won": 1.5, "goals_total": 1},
+    "Defensive Midfield": {"tackles_total": 2, "tackles_interceptions": 2,
+                           "duels_won": 2, "passes_total": 1, "tackles_blocks": 1},
+    "Left Midfield":      {"goals_assists": 2, "passes_key": 1.5, "dribbles_success": 1.5,
+                           "goals_total": 1.5, "tackles_total": 0.5},
+    "Right Midfield":     {"goals_assists": 2, "passes_key": 1.5, "dribbles_success": 1.5,
+                           "goals_total": 1.5, "tackles_total": 0.5},
+    "Centre-Back":        {"tackles_interceptions": 2, "tackles_blocks": 2, "duels_won": 2,
+                           "tackles_total": 1.5, "passes_total": 1, "goals_total": 0.5},
+    "Left-Back":          {"tackles_total": 2, "tackles_interceptions": 1.5, "duels_won": 1.5,
+                           "passes_key": 1.5, "goals_assists": 1.5, "dribbles_success": 1},
+    "Right-Back":         {"tackles_total": 2, "tackles_interceptions": 1.5, "duels_won": 1.5,
+                           "passes_key": 1.5, "goals_assists": 1.5, "dribbles_success": 1},
+    "Goalkeeper":         {"save_pct": 3, "saves_total": 1.5, "penalties_saved": 1,
+                           "goals_conceded": 2.5, "passes_total": 0.5},
 }
-CARD_WEIGHTS = {"cards_yellow": 1, "cards_red": 3}
+
+CARD_WEIGHTS = {"cards_yellow": 1, "cards_red": 3}   # penalty for every position
 CARD_PENALTY = 0.2
 
 
