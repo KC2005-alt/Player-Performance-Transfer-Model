@@ -4,6 +4,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.model_selection import cross_val_predict, LeaveOneOut
+
 
 # --- 1. Settings you can change --------------------------------------------
 WEIGHTS = {
@@ -68,6 +70,12 @@ def add_score(df, group_col="sub_position"):
     for name, group in df.groupby(group_col):
         df.loc[group.index, "score"] = score_group(group, name)
     return df
+
+def check_model(df):
+    X = df[["score", "age"]].values
+    y = df["value_m"].values
+    predicted = cross_val_predict(LinearRegression(), X, y, cv=LeaveOneOut())
+    print("Average error on unseen players (millions of euro)")
 
 # --- 4. Regression: score -> market value ----------------------------------
 def fit_value_model(df):
