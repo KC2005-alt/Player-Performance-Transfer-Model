@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # --- 1. Settings you can change --------------------------------------------
-WEIGHTS = {
+POSITIVE_WEIGHTS = {
     "Centre-Forward":     {"goals_total": 3, "shots_on_target": 2, "shots_total": 1,
                            "goals_assists": 1.5, "duels_won": 0.5},
     "Second Striker":     {"goals_total": 2.5, "goals_assists": 2, "shots_on_target": 1.5,

@@ -10,11 +10,15 @@ def load_data():
     return stats_df, players_df, valuations_df
 
 
-def match_player_id(player_name, season, players_df):
+POSITION_MAP = {"Goalkeeper": "Goalkeeper", "Defender": "Defender",
+                "Midfielder": "Midfield", "Attacker": "Attack"}
+
+def match_player_id(player_name, season, position, players_df):
     initial = player_name[0].upper()
     candidates = players_df[
         (players_df["last_season"] >= season)
         & (players_df["first_name"].fillna("").str.upper().str.startswith(initial))
+        & (players_df["position"] == POSITION_MAP[position])
     ]
     if candidates.empty:
         return None
@@ -55,7 +59,7 @@ def build_training_data(stats_df, players_df, valuations_df):
     stats_df = aggregate_player_stats(stats_df)
     rows = []
     for _, stats in stats_df.iterrows():
-        player_id = match_player_id(stats["player_name"], stats["season"], players_df)
+        player_id = match_player_id(stats["player_name"], stats["season"], stats["position"], players_df)
         if player_id is None:
             print(f"No Transfermarkt match for {stats['player_name']}")
             continue
@@ -69,6 +73,8 @@ def build_training_data(stats_df, players_df, valuations_df):
         combined_row.update(valuation.iloc[0].to_dict())
         date_of_birth = pd.to_datetime(tm_row["date_of_birth"])
         combined_row["age"] = round((combined_row["date"] - date_of_birth).days / 365.25, 1)
+        rows.append(combined_row)
+
     return pd.DataFrame(rows)
 
 
