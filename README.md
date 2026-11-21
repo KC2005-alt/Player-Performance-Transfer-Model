@@ -14,10 +14,26 @@ Dots above the dashed line are valued higher than their stats suggest. Dots belo
 
 ## Results (attacking midfielders, 2024/25, 11 players)
 - R² = 0.44 (on the players the model was fitted to)
-- Leave-one-out average error: about 35m using score and age, about 31m using age alone, about 42m using score alone
+- Leave-one-out average error (predicting each player without seeing him):
+  about 35m using score and age, about 31m using age alone, about 42m using score alone
 
-With only 11 players, the score does not beat age at predicting value for unseen players. Adding more players per position is the next step.
+With only 11 players, the performance score does not beat age at predicting value for
+unseen players. More players per position is the main next step.
 
+### Example: Rayan Cherki
+Using his 2024/25 stats and age, the model predicted about 115m. Transfermarkt valued him at
+45m (June 2025), so he showed up as the most undervalued player in the group.
+By June 2026 his Transfermarkt value had risen to 90m.
+
+| Date | Transfermarkt value |
+|---|---|
+| Jun 2025 (used in the model) | 45m |
+| Dec 2025 | 50m |
+| Mar 2026 | 65m |
+| Jun 2026 | 90m |
+
+This is a single example, not proof the model works. His move to Manchester City and
+his club form will also have driven the rise, which the model cannot see.
 ## Run it
 ```
 pip install -r requirements.txt
